@@ -2,9 +2,9 @@
 
 # Проект Mesto фронтенд + бэкенд
 **Проектная работа 15**
-# Репозиторий [Mesto](git@github.com:ivanovanatalya/react-mesto-api-full.git)
+** Репозиторий [Mesto](git@github.com:ivanovanatalya/react-mesto-api-full.git)**
 
-#ссылка на сайт, размещенный на Яндекс.Облаке: 
+ссылка на сайт, размещенный на Яндекс.Облаке: 
 https://mesto.ivanovann.nomoredomains.work/
 IP-адрес сервера: 158.160.25.239
 
