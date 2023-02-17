@@ -1,0 +1,19 @@
+.header__logo {
+  display: block;
+  background: url(../../../images/logo.svg) no-repeat;
+  background-size: 142px 33px;
+  width: 142px;
+  padding-bottom: 40px;
+  margin-left: 8px;
+  flex-grow: 1;
+}
+
+.header__logo:hover {
+  background: url('../../../images/logo_click.svg');
+}
+
+@media screen and (max-width:600px) {
+  .header__logo {
+    background-size: 104px 25px;
+  }
+}

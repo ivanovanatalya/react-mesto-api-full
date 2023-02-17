@@ -1,0 +1,10 @@
+.profile__avatar-container {
+  position: relative;
+}
+
+.profile__avatar-container:hover:before {
+  content: url('../../../images/Vector.png');
+  position: absolute;
+  top: 40px;
+  left: 60px;
+}

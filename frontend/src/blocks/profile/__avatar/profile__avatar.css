@@ -1,0 +1,22 @@
+.profile__avatar {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-left: 9px;
+  margin-top: -5px;
+  object-fit: cover;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile__avatar:hover {
+  opacity: 0.2;
+}
+
+.profile__avatar::before {
+  content: url('../../../images/Vector.png');
+  display: inline-block;
+  position: absolute;
+  top: 100px;
+  left: 150px;
+}

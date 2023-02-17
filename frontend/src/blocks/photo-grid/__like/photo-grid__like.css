@@ -1,0 +1,13 @@
+.photo-grid__like {
+  transition: opacity 0.3s ease-in-out;
+  width: 26px;
+  height: 19px;
+  background: url('../../../images/photo-grid__like.svg') center no-repeat;
+  font-size: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.photo-grid__like:hover {
+  opacity: .5;
+}
