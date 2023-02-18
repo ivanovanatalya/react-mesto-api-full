@@ -11,6 +11,7 @@ const { CREATED_CODE } = require('../constants');
 
 const getAllCards = (req, res, next) => {
   Card.find({})
+    .populate(['owner', 'likes'])
     .then((allCards) => res.send([...allCards]))
     .catch(next);
 };

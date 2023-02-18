@@ -43,7 +43,7 @@ function App() {
           if (res) {
             api.setToken(jwt);
             setIsLoggedIn(true);
-            setUserMail(res.data.email);
+            setUserMail(res.email);
             history.replace('/');
           }
         })
@@ -148,12 +148,12 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(user => user._id === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, isLiked)
       .then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        setCards((state) => state.map((item) => item._id === card._id ? newCard : item));
       })
       .catch(err => {
         console.log(err); // выведем ошибку в консоль
@@ -163,7 +163,7 @@ function App() {
   function handleCardDelete(card) {
     api.deleteCard(card._id)
       .then(() => {
-        setCards((state) => state.filter((c) => c._id !== card._id))
+        setCards((state) => state.filter((item) => item._id !== card._id))
       })
       .catch(err => {
         console.log(err); // выведем ошибку в консоль

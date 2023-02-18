@@ -15,16 +15,6 @@ const auth = (req, res, next) => {
   let payload;
 
   try {
-    const { NODE_ENV, JWT_SECRET } = process.env;
-    payload = jwt.verify(
-      token,
-      NODE_ENV === 'production' ? JWT_SECRET : SECRET_KEY_DEV,
-    );
-  } catch (err) {
-    return next(new UnauthError());
-  }
-
-  try {
     jwt.verify(token, SECRET_KEY_DEV);
     console.log('\x1b[31m%s\x1b[0m', `
     Надо исправить. В продакшне используется тот же
@@ -43,6 +33,16 @@ const auth = (req, res, next) => {
         err,
       );
     }
+  }
+
+  try {
+    const { NODE_ENV, JWT_SECRET } = process.env;
+    payload = jwt.verify(
+      token,
+      NODE_ENV === 'production' ? JWT_SECRET : SECRET_KEY_DEV,
+    );
+  } catch (err) {
+    return next(new UnauthError());
   }
 
   req.user = payload; // записываем пейлоуд в объект запроса
