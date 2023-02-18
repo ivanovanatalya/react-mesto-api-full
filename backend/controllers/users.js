@@ -12,7 +12,7 @@ const {
 
 const getAllUsers = (req, res, next) => {
   User.find({})
-    .then((allUsers) => res.send({ data: allUsers }))
+    .then((allUsers) => res.send([ ...allUsers ]))
     .catch(next);
 };
 
@@ -23,7 +23,7 @@ const getUser = (req, res, next) => {
       if (user === null) {
         throw new NotFoundError('Пользователь по указанному _id не найден');
       }
-      return res.send({ data: user });
+      return res.send(user);
     })
     .catch(
       (err) => {
@@ -42,7 +42,7 @@ const getCurrentUser = (req, res, next) => {
       if (user === null) {
         throw new NotFoundError('Пользователь по указанному _id не найден');
       }
-      return res.send({ data: user });
+      return res.send(user);
     })
     .catch(next);
 };
@@ -91,7 +91,7 @@ const updateUser = (req, res, next) => {
       if (user === null) {
         throw new NotFoundError('Пользователь по указанному _id не найден');
       }
-      return res.send({ data: user });
+      return res.send(user);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
@@ -113,7 +113,7 @@ const updateAvatar = (req, res, next) => {
       if (user === null) {
         throw new NotFoundError('Пользователь по указанному _id не найден');
       }
-      res.send({ data: user });
+      res.send(user);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
@@ -130,7 +130,7 @@ const login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'some-dev-secret',
+        NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
         { expiresIn: 7200 },
       );
       return res.send({ token });

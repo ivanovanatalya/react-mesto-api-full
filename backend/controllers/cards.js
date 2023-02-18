@@ -11,7 +11,7 @@ const {
 
 const getAllCards = (req, res, next) => {
   Card.find({})
-    .then((allCards) => res.send({ data: allCards }))
+    .then((allCards) => res.send([ ...allCards ]))
     .catch(next);
 };
 
@@ -19,7 +19,7 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
   const { _id: owner } = req.user;
   Card.create({ name, link, owner })
-    .then((card) => res.status(CREATED_CODE).send({ data: card }))
+    .then((card) => res.status(CREATED_CODE).send(card))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         return next(new GeneralError('Переданы некорректные данные при создании карточки'));
@@ -61,7 +61,7 @@ const setLike = (req, res, next) => {
       if (card === null) {
         throw new NotFoundError('Карточка с указанным _id не найдена');
       }
-      return res.send({ data: card });
+      return res.send(card);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
@@ -82,7 +82,7 @@ const deleteLike = (req, res, next) => {
       if (card === null) {
         throw new NotFoundError('Карточка с указанным _id не найдена');
       }
-      res.send({ data: card });
+      res.send(card);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {

@@ -98,7 +98,7 @@ class Api {
   }
 }
 
-const api_token = '504d9f32-34cb-46c5-b423-b7576f09dbc5';
+// const api_token = '504d9f32-34cb-46c5-b423-b7576f09dbc5';
 
 export const api = new Api({
   // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-52',
