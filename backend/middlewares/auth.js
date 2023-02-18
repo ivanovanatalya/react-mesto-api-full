@@ -15,8 +15,10 @@ const auth = (req, res, next) => {
 
   try {
     const { NODE_ENV, JWT_SECRET } = process.env;
-    payload = jwt.verify(token,
-      NODE_ENV === 'production' ? JWT_SECRET : 'some-dev-secret',);
+    payload = jwt.verify(
+      token,
+      NODE_ENV === 'production' ? JWT_SECRET : 'some-dev-secret',
+    );
   } catch (err) {
     return next(new UnauthError());
   }

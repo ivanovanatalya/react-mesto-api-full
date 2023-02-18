@@ -11,7 +11,6 @@ const {
 
 const getAllCards = (req, res, next) => {
   Card.find({})
-    .populate(['owner', 'likes'])
     .then((allCards) => res.send({ data: allCards }))
     .catch(next);
 };
