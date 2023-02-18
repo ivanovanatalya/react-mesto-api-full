@@ -58,5 +58,3 @@ export const authApi = new AuthApi({
   // baseUrl: 'https://auth.nomoreparties.co',
   baseUrl: 'https://api.mesto.ivanovann.nomoredomains.work',
 });
-
-export default AuthApi;

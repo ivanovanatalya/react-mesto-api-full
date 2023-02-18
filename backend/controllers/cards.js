@@ -11,7 +11,7 @@ const {
 
 const getAllCards = (req, res, next) => {
   Card.find({})
-    .then((allCards) => res.send([ ...allCards ]))
+    .then((allCards) => res.send([...allCards]))
     .catch(next);
 };
 

@@ -12,7 +12,7 @@ const {
 
 const getAllUsers = (req, res, next) => {
   User.find({})
-    .then((allUsers) => res.send([ ...allUsers ]))
+    .then((allUsers) => res.send([...allUsers]))
     .catch(next);
 };
 

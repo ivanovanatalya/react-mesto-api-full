@@ -41,6 +41,7 @@ function App() {
       authApi.checkToken(jwt)
         .then(res => {
           if (res) {
+            api.setToken(jwt);
             setIsLoggedIn(true);
             setUserMail(res.data.email);
             history.replace('/');
@@ -96,6 +97,8 @@ function App() {
     authApi.signIn(email, password)
       .then(res => {
         if (res) {
+          const jwt = localStorage.getItem('token');
+          api.setToken(jwt);
           setIsLoggedIn(true);
           setUserMail(email);
           history.replace('/');
@@ -216,7 +219,15 @@ function App() {
           </Route>
 
           <ProtectedRoute path="/" isLoggedIn={isLoggedIn} >
-            <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} cards={cards} onCardLike={handleCardLike} onCardDelete={handleCardDelete} />
+            <Main 
+              onEditProfile={handleEditProfileClick} 
+              onAddPlace={handleAddPlaceClick} 
+              onEditAvatar={handleEditAvatarClick} 
+              onCardClick={handleCardClick} 
+              cards={cards} 
+              onCardLike={handleCardLike} 
+              onCardDelete={handleCardDelete}
+            />
           </ProtectedRoute>
 
           <Route path="*">
