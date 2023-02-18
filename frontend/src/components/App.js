@@ -174,6 +174,7 @@ function App() {
   function handleAddPlaceSubmit({ name, link }) {
     api.addCard({ name, link })
       .then(res => {
+        res.owner = { _id: res.owner };
         setCards([res, ...cards]);
         closeAllPopups();
       })
