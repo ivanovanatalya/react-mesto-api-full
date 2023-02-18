@@ -3,11 +3,11 @@
 const { mongoose } = require('mongoose');
 const Card = require('../models/cards');
 const {
-  CREATED_CODE,
   NotFoundError,
   ForbiddenError,
   GeneralError,
 } = require('../middlewares/errors');
+const { CREATED_CODE } = require('../constants');
 
 const getAllCards = (req, res, next) => {
   Card.find({})

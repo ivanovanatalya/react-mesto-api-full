@@ -12,7 +12,7 @@ const {
   setLike,
   deleteLike,
 } = require('../controllers/cards');
-const { URL_REGEX } = require('../middlewares/errors');
+const { URL_REGEX } = require('../constants');
 
 cardsRouter.get('/', getAllCards);
 cardsRouter.post('/', celebrate({

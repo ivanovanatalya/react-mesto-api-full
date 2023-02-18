@@ -12,7 +12,7 @@ const {
   updateUser,
   updateAvatar,
 } = require('../controllers/users');
-const { URL_REGEX } = require('../middlewares/errors');
+const { URL_REGEX } = require('../constants');
 
 usersRouter.get('/', getAllUsers);
 usersRouter.get('/me', getCurrentUser);

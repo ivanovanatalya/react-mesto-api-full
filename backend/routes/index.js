@@ -4,9 +4,10 @@ const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const usersRouter = require('./users');
 const cardsRouter = require('./cards');
-const { NotFoundError, URL_REGEX } = require('../middlewares/errors');
+const { NotFoundError } = require('../middlewares/errors');
 const auth = require('../middlewares/auth');
 const { login, createUser } = require('../controllers/users');
+const { URL_REGEX } = require('../constants');
 
 router.post('/signup', celebrate({
   body: Joi.object().keys({

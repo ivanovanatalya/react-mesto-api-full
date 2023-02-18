@@ -1,6 +1,6 @@
 // models/user.js
 const mongoose = require('mongoose');
-const { URL_REGEX } = require('../middlewares/errors');
+const { URL_REGEX } = require('../constants');
 
 // Опишем схему:
 const cardSchema = new mongoose.Schema({

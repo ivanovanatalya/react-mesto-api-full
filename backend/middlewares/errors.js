@@ -1,4 +1,5 @@
-const CREATED_CODE = 201;
+const { SERVER_ERROR_CODE } = require('../constants');
+
 class GeneralError extends Error {
   constructor(message = 'error') {
     super(message);
@@ -39,9 +40,6 @@ class DataConflictError extends Error {
   }
 }
 
-const SERVER_ERROR_CODE = 500;
-const URL_REGEX = /https?:\/\/(?:www.)?[0-9A-z-._~:/?#[\]@!$&'()*+,;=]+/;
-
 const errorHandler = (err, req, res, next) => {
   // если у ошибки нет статуса, выставляем 500
   const { statusCode = SERVER_ERROR_CODE, message } = err;
@@ -58,11 +56,9 @@ const errorHandler = (err, req, res, next) => {
 
 module.exports = {
   GeneralError,
-  CREATED_CODE,
   UnauthError,
   ForbiddenError,
   NotFoundError,
   DataConflictError,
-  URL_REGEX,
   errorHandler,
 };

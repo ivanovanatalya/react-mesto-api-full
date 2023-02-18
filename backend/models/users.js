@@ -2,7 +2,8 @@
 const validator = require('validator');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const { URL_REGEX, UnauthError } = require('../middlewares/errors');
+const { UnauthError } = require('../middlewares/errors');
+const { URL_REGEX } = require('../constants');
 
 // Опишем схему:
 const userSchema = new mongoose.Schema({

@@ -9,6 +9,7 @@ const {
   DataConflictError,
   NotFoundError,
 } = require('../middlewares/errors');
+const { SECRET_KEY_DEV } = require('../constants');
 
 const getAllUsers = (req, res, next) => {
   User.find({})
@@ -130,7 +131,7 @@ const login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
+        NODE_ENV === 'production' ? JWT_SECRET : SECRET_KEY_DEV,
         { expiresIn: 7200 },
       );
       return res.send({ token });
