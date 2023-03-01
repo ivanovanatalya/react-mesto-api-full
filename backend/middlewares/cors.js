@@ -2,9 +2,9 @@
 const allowedCors = [
   'https://mesto.ivanovann.nomoredomains.work',
   'http://mesto.ivanovann.nomoredomains.work',
-  'localhost:3000',
-  'https://localhost:3000',
-  'http://localhost:3000',
+  'localhost:3001',
+  'https://localhost:3001',
+  'http://localhost:3001',
 ];
 
 const cors = function cors(req, res, next) {
