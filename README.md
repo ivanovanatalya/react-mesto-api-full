@@ -1,7 +1,7 @@
 ### Проект Mesto
 #### Проект подготовлен в рамках обучения на курсе *[веб-разработчик Яндекс.Практикум](https://practicum.yandex.ru/web/?utm_source=practicum&utm_medium=email&utm_campaign=sendr-597315)*
 
-#### Репозиторий [Mesto](git@github.com:ivanovanatalya/react-mesto-api-full.git)
+#### Репозиторий [Mesto](https://github.com/ivanovanatalya/react-mesto-api-full)
 
 #### Технологии:
 ![JavaScript](https://img.shields.io/badge/javascript-36465D.svg?style=for-the-badge&logo=javascript&logoColor=8FD337)
